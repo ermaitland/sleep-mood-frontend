@@ -2,9 +2,10 @@ import axios from 'axios';
 import { AUTH } from './auth';
 
 const ENDPOINTS = {
-  alldays: '/api/days/',
-  login: '/api/auth/login/',
-  register: '/api/auth/register/'
+  alldays: `/api/days/`,
+  login: `/api/auth/login/`,
+  register: `/api/auth/register/`,
+  moods: `/api/mood/`
 };
 
 const getHeaders = () => ({

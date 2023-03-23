@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { API } from '../lib/api';
 import Graph from './Graph';
+import AddDay from './addDay';
 
 export default function User() {
   const [graphData, setGraphData] = useState({});
@@ -18,6 +19,7 @@ export default function User() {
   return (
     <div>
       <Graph graphData={graphData} />
+      <AddDay />
     </div>
   );
 }

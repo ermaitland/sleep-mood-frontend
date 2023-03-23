@@ -24,7 +24,9 @@ export default function Graph({ graphData }) {
   let dayData = [];
   let sleepData = [];
 
-  for (let i = 0; i < graphData?.data.length; i++) {
+  const dataToUse = graphData?.data ? graphData.data.length : graphData.length;
+
+  for (let i = 0; i < dataToUse; i++) {
     dayData.push(graphData.data[i].day_logged);
     sleepData.push(graphData.data[i].sleep);
   }

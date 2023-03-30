@@ -1,0 +1,24 @@
+.main {
+  background-color: aliceblue;
+  height: 100vh;
+  padding: 10px;
+  .title {
+    text-align: center;
+    align-self: center;
+  }
+  // display: flex;
+  // flex-direction: column;
+
+  .createDayLog {
+    padding-top: 50px;
+  }
+  .logout {
+    margin-top: 0;
+    color: white;
+  }
+}
+
+.Home {
+  background-color: aliceblue;
+  height: 100vh;
+}

@@ -23,39 +23,28 @@ ChartJS.register(
 export default function Graph({ graphData }) {
   let dayData = [];
   let sleepData = [];
+  // let moodData = [];
 
   const dataToUse = graphData?.data ? graphData.data.length : graphData.length;
 
   for (let i = 0; i < dataToUse; i++) {
     dayData.push(graphData.data[i].day_logged);
     sleepData.push(graphData.data[i].sleep);
+    // moodData.push(graphData.data[i].mood);
   }
 
   console.log({ dayData });
   console.log({ sleepData });
 
   let data = {
-    labels: dayData,
+    labels: dayData.sort(),
+    // tooltipText: moodData,
     datasets: [
       {
         label: `Hours of sleep`,
         data: sleepData,
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
-        ],
+        backgroundColor: ['blue'],
+        borderColor: ['blue'],
         borderWidth: 1
       }
     ]
@@ -75,7 +64,7 @@ export default function Graph({ graphData }) {
 
   return (
     <div>
-      <Line data={data} height={400} options={options} />
+      <Line data={data} height={300} width={200} options={options} />
     </div>
   );
 }

@@ -8,9 +8,9 @@ import {
   FormControl,
   MenuItem,
   InputLabel,
-  Select,
-  Typography
+  Select
 } from '@mui/material';
+import '../styles/main.scss';
 
 let emptyDay = {
   mood: '',
@@ -101,7 +101,9 @@ export default function AddDay() {
             />
           </Box>
 
-          <Button type='submit'>Submit!</Button>
+          <Button type='submit' variant='contained'>
+            Submit!
+          </Button>
         </form>
       </Container>
     </section>

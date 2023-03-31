@@ -5,7 +5,8 @@ const ENDPOINTS = {
   alldays: `/api/days/`,
   login: `/api/auth/login/`,
   register: `/api/auth/register/`,
-  moods: `/api/mood/`
+  moods: `/api/mood/`,
+  singleDay: (id) => `/api/days/${id}/`
 };
 
 const getHeaders = () => ({

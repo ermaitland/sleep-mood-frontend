@@ -11,13 +11,11 @@ import {
   MenuItem
 } from '@mui/material';
 import { AUTH } from '../lib/auth';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function User() {
-  const { id } = useParams();
   const navigate = useNavigate();
   const [graphData, setGraphData] = useState({});
-  const [days, setDays] = useState();
 
   useEffect(() => {
     API.GET(API.ENDPOINTS.alldays, API.getHeaders())
@@ -34,8 +32,6 @@ export default function User() {
     navigate('/');
   };
 
-  const handleChange = () => navigate(`/userpage/${id}`);
-
   return (
     <section className='main'>
       <section>
@@ -47,20 +43,24 @@ export default function User() {
         >
           Logout
         </Button>
-        <FormControl fullWidth sx={{ mb: 2 }}>
-          <InputLabel id='mood'>Mood</InputLabel>
+        <FormControl sx={{ width: 200, ml: 3, mb: 2 }}>
+          <InputLabel id='mood'>Single Day View</InputLabel>
           <Select
             size='small'
             labelId='mood'
-            // value={days?.mood}
+            // value={value}
             label='Mood'
             name='mood'
-            onChange={handleChange}
           >
             <MenuItem value=''>None</MenuItem>
             {graphData?.data ? (
               graphData?.data.map((day) => (
-                <MenuItem value={day.id} key={day.id}>
+                <MenuItem
+                  value={day.id}
+                  key={day.id}
+                  id={day.id}
+                  onClick={() => navigate(`/userpage/${day.id}`)}
+                >
                   {day.day_logged}
                 </MenuItem>
               ))
